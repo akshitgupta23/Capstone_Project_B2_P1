@@ -1,5 +1,6 @@
 package com.wf.Capstope_project.Dao;
 
+import com.wf.Capstope_project.Entity.Branch;
 import com.wf.Capstope_project.Entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,7 @@ public interface CustomerDao extends JpaRepository<Customer, String> {
 
     Customer save(Customer customer);
 
-    void deleteCustomersByBranch_Branch_id(String branch_id);
+    void deleteCustomersByBranch(Branch branch);
 
 
 

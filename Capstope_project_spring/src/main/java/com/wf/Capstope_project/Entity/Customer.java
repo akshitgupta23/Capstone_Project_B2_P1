@@ -1,7 +1,5 @@
 package com.wf.Capstope_project.Entity;
 
-import net.bytebuddy.build.ToStringPlugin;
-
 import javax.persistence.*;
 import java.sql.Date;
 

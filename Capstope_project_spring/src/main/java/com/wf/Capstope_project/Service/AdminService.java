@@ -14,7 +14,7 @@ public class AdminService {
     AdminDao adminDao;
 
     public boolean login(Admin UIUser){
-        Optional<Admin> user = adminDao.findById(UIUser.getUser_id());
+        Optional<Admin> user = adminDao.findById(UIUser.getUsername());
         if(user.isPresent() && user.get().getPassword().equals(UIUser.getPassword()))
         {
             return true;
