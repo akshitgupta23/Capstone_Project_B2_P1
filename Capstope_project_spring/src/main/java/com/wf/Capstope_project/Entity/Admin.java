@@ -1,13 +1,16 @@
 package com.wf.Capstope_project.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table
 public class Admin {
     @Id
-    private String user_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column
+    private String username;
     @Column
     private String password;
 
@@ -15,17 +18,17 @@ public class Admin {
 
     }
 
-    public Admin(String user_id, String password) {
-        this.user_id = user_id;
+    public Admin(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getPassword() {
