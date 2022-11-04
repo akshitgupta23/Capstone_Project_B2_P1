@@ -2,10 +2,7 @@ package com.wf.Capstope_project.Entity;
 
 import net.bytebuddy.build.ToStringPlugin;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -17,8 +14,9 @@ public class Customer {
     @Column
     private String customer_no;
 
-    @Column
-    private String branch_id;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "branch_id")
+    private Branch branch;
 
     @Column
     private int opening_balance;
@@ -32,10 +30,13 @@ public class Customer {
     @Column
     private String account_status;
 
-    public Customer(String account_no, String customer_no, String branch_id, int opening_balance, Date opening_date, String account_type, String account_status) {
+    public Customer(){
+
+    }
+    public Customer(String account_no, String customer_no, Branch branch, int opening_balance, Date opening_date, String account_type, String account_status) {
         this.account_no = account_no;
         this.customer_no = customer_no;
-        this.branch_id = branch_id;
+        this.branch = branch;
         this.opening_balance = opening_balance;
         this.opening_date = opening_date;
         this.account_type = account_type;
@@ -58,12 +59,12 @@ public class Customer {
         this.customer_no = customer_no;
     }
 
-    public String getBranch_id() {
-        return branch_id;
+    public Branch getBranch() {
+        return branch;
     }
 
-    public void setBranch_id(String branch_id) {
-        this.branch_id = branch_id;
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 
     public int getOpening_balance() {
