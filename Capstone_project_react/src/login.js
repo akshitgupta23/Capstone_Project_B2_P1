@@ -10,7 +10,7 @@ const Login=()=>{
         
 		//setDataInput([info]);
         console.log("form submitted------------------------------------------------------>");
-        axios.post('',{email:email, 
+        axios.post('http://localhost:8081/admin/login',{email:email, 
             password:passw
         })
         .then((response)=> {
