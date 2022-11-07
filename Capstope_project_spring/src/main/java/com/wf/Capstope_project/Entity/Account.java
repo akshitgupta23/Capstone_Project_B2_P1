@@ -5,7 +5,7 @@ import java.sql.Date;
 
 @Entity
 @Table
-public class Customer {
+public class Account {
     @Id
     private String account_no;
 
@@ -28,10 +28,10 @@ public class Customer {
     @Column
     private String account_status;
 
-    public Customer(){
+    public Account(){
 
     }
-    public Customer(String account_no, String customer_no, Branch branch, int opening_balance, Date opening_date, String account_type, String account_status) {
+    public Account(String account_no, String customer_no, Branch branch, int opening_balance, Date opening_date, String account_type, String account_status) {
         this.account_no = account_no;
         this.customer_no = customer_no;
         this.branch = branch;

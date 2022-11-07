@@ -1,20 +1,20 @@
 package com.wf.Capstope_project.Dao;
 
 import com.wf.Capstope_project.Entity.Branch;
-import com.wf.Capstope_project.Entity.Customer;
+import com.wf.Capstope_project.Entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface CustomerDao extends JpaRepository<Customer, String> {
+public interface CustomerDao extends JpaRepository<Account, String> {
 
-    List<Customer> findAll();
+    List<Account> findAll();
 
-    void delete(Customer customer);
+    void delete(Account customer);
 
-    Customer save(Customer customer);
+    Account save(Account customer);
 
     void deleteCustomersByBranch(Branch branch);
 
