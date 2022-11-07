@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -21,8 +18,8 @@ public class BranchService {
     public BranchRegistrationResponse branchRegistration(Branch branch){
         try{
             if(branch!=null){
-                if(branch.getBranch_id()!= null && branch.getBranch_address()!=null && branch.getBranch_name()!=null){
-                    Optional<Branch> branch1 = branchDao.findById(branch.getBranch_id());
+                if(branch.getBranchId()!= null && branch.getBranchAddress()!=null && branch.getBranchName()!=null){
+                    Optional<Branch> branch1 = branchDao.findById(branch.getBranchId());
                     if(branch1.isPresent()){
                         return new BranchRegistrationResponse(false, 0, "Branch Id already exists");
                     }

@@ -16,5 +16,5 @@ public interface BranchDao extends JpaRepository<Branch, String> {
 
     Branch save(Branch branch);
 
-    Optional<Branch> findById(String branch_id);
+    Optional<Branch> findById(String branchId);
 }

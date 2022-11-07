@@ -4,57 +4,59 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table
+@Table(name = "account_master")
 public class Account {
     @Id
-    private String account_no;
+    @Column(name = "acount_no")
+    private String accountNo;
 
-    @Column
-    private String customer_no;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "customer_number")
+    private Customer customer;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "branch_id")
     private Branch branch;
 
-    @Column
-    private int opening_balance;
+    @Column(name = "opening_balance")
+    private int openingBalance;
 
-    @Column
-    private Date opening_date;
+    @Column(name = "opening_date")
+    private Date openingDate;
 
-    @Column
-    private String account_type;
+    @Column(name = "account_type")
+    private String accountType;
 
-    @Column
-    private String account_status;
+    @Column(name = "account_status")
+    private String accountStatus;
 
     public Account(){
 
     }
-    public Account(String account_no, String customer_no, Branch branch, int opening_balance, Date opening_date, String account_type, String account_status) {
-        this.account_no = account_no;
-        this.customer_no = customer_no;
+    public Account(String accountNo, Customer customer, Branch branch, int openingBalance, Date openingDate, String accountType, String accountStatus) {
+        this.accountNo = accountNo;
+        this.customer = customer;
         this.branch = branch;
-        this.opening_balance = opening_balance;
-        this.opening_date = opening_date;
-        this.account_type = account_type;
-        this.account_status = account_status;
+        this.openingBalance = openingBalance;
+        this.openingDate = openingDate;
+        this.accountType = accountType;
+        this.accountStatus = accountStatus;
     }
 
-    public String getAccount_no() {
-        return account_no;
+    public String getAccountNo() {
+        return accountNo;
     }
 
-    public void setAccount_no(String account_no) {
-        this.account_no = account_no;
+    public void setAccountNo(String account_no) {
+        this.accountNo = account_no;
     }
 
-    public String getCustomer_no() {
-        return customer_no;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomer_no(String customer_no) {
-        this.customer_no = customer_no;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Branch getBranch() {
@@ -65,35 +67,35 @@ public class Account {
         this.branch = branch;
     }
 
-    public int getOpening_balance() {
-        return opening_balance;
+    public int getOpeningBalance() {
+        return openingBalance;
     }
 
-    public void setOpening_balance(int opening_balance) {
-        this.opening_balance = opening_balance;
+    public void setOpeningBalance(int opening_balance) {
+        this.openingBalance = opening_balance;
     }
 
-    public Date getOpening_date() {
-        return opening_date;
+    public Date getOpeningDate() {
+        return openingDate;
     }
 
-    public void setOpening_date(Date opening_date) {
-        this.opening_date = opening_date;
+    public void setOpeningDate(Date opening_date) {
+        this.openingDate = opening_date;
     }
 
-    public String getAccount_type() {
-        return account_type;
+    public String getAccountType() {
+        return accountType;
     }
 
-    public void setAccount_type(String account_type) {
-        this.account_type = account_type;
+    public void setAccountType(String account_type) {
+        this.accountType = account_type;
     }
 
-    public String getAccount_status() {
-        return account_status;
+    public String getAccountStatus() {
+        return accountStatus;
     }
 
-    public void setAccount_status(String account_status) {
-        this.account_status = account_status;
+    public void setAccountStatus(String account_status) {
+        this.accountStatus = account_status;
     }
 }
