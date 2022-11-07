@@ -1,50 +1,65 @@
 package com.wf.Capstope_project.Entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table
+@Table(name = "branch_master")
 public class Branch {
     @Id
-    private String branch_id;
+    @Column(name = "branch_id")
+    private String branchId;
 
-    @Column
-    private String branch_name;
+    @Column(name = "branch_name")
+    private String branchName;
 
-    @Column
-    private String branch_address;
+    @Column(name = "branch_address")
+    private String branchAddress;
 
     public Branch(){
 
     }
 
-    public Branch(String branch_id, String branch_name, String branch_address) {
-        this.branch_id = branch_id;
-        this.branch_name = branch_name;
-        this.branch_address = branch_address;
+    public Branch(String branchId, String branchName, String branchAddress) {
+        this.branchId = branchId;
+        this.branchName = branchName;
+        this.branchAddress = branchAddress;
     }
 
-    public String getBranch_id() {
-        return branch_id;
+    public String getBranchId() {
+        return branchId;
     }
 
-    public void setBranch_id(String branch_id) {
-        this.branch_id = branch_id;
+    public void setBranchId(String branch_id) {
+        this.branchId = branch_id;
     }
 
-    public String getBranch_name() {
-        return branch_name;
+    public String getBranchName() {
+        return branchName;
     }
 
-    public void setBranch_name(String branch_name) {
-        this.branch_name = branch_name;
+    public void setBranchName(String branch_name) {
+        this.branchName = branch_name;
     }
 
-    public String getBranch_address() {
-        return branch_address;
+    public String getBranchAddress() {
+        return branchAddress;
     }
 
-    public void setBranch_address(String branch_address) {
-        this.branch_address = branch_address;
+    public void setBranchAddress(String branch_address) {
+        this.branchAddress = branch_address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Branch branch = (Branch) o;
+        return branchId.equals(branch.branchId) && Objects.equals(branchName, branch.branchName) && Objects.equals(branchAddress, branch.branchAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(branchId, branchName, branchAddress);
     }
 }

@@ -1,99 +1,119 @@
 package com.wf.Capstope_project.Entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table
+@Table(name = "customer_master")
 public class Customer {
+
     @Id
-    private String account_no;
+    @Column(name = "customer_no")
+    private String customerNo;
 
     @Column
-    private String customer_no;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "branch_id")
-    private Branch branch;
+    private String firstName;
 
     @Column
-    private int opening_balance;
+    private String middleName;
 
     @Column
-    private Date opening_date;
+    private String lastName;
+
+    @Column(name = "customer_city")
+    private String customerCity;
+
+    @Column(name = "customer_contact_no")
+    private String customerContactNo;
 
     @Column
-    private String account_type;
+    private String occupation;
 
-    @Column
-    private String account_status;
+    @Column(name = "customer_date_of_birth")
+    private Date dob;
 
-    public Customer(){
+    public Customer(){}
 
-    }
-    public Customer(String account_no, String customer_no, Branch branch, int opening_balance, Date opening_date, String account_type, String account_status) {
-        this.account_no = account_no;
-        this.customer_no = customer_no;
-        this.branch = branch;
-        this.opening_balance = opening_balance;
-        this.opening_date = opening_date;
-        this.account_type = account_type;
-        this.account_status = account_status;
-    }
-
-    public String getAccount_no() {
-        return account_no;
-    }
-
-    public void setAccount_no(String account_no) {
-        this.account_no = account_no;
+    public Customer(String customer_no, String firstName,
+                    String middleName, String lastName,
+                    String customerCity,
+                    String customerContactNo,
+                    String occupation,
+                    Date dob) {
+        this.customerNo = customer_no;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.customerCity = customerCity;
+        this.customerContactNo = customerContactNo;
+        this.occupation = occupation;
+        this.dob = dob;
     }
 
-    public String getCustomer_no() {
-        return customer_no;
+    public String getCustomerNo() {
+        return customerNo;
     }
 
-    public void setCustomer_no(String customer_no) {
-        this.customer_no = customer_no;
+    public void setCustomer_no(String customerNo) {
+        this.customerNo = customerNo;
     }
 
-    public Branch getBranch() {
-        return branch;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setBranch(Branch branch) {
-        this.branch = branch;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
-    public int getOpening_balance() {
-        return opening_balance;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setOpening_balance(int opening_balance) {
-        this.opening_balance = opening_balance;
+    public void setMiddleName(String middlename) {
+        this.middleName = middlename;
     }
 
-    public Date getOpening_date() {
-        return opening_date;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setOpening_date(Date opening_date) {
-        this.opening_date = opening_date;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
-    public String getAccount_type() {
-        return account_type;
+    public String getCustomerCity() {
+        return customerCity;
     }
 
-    public void setAccount_type(String account_type) {
-        this.account_type = account_type;
+    public void setCustomerCity(String customerCity) {
+        this.customerCity = customerCity;
     }
 
-    public String getAccount_status() {
-        return account_status;
+    public String getCustomerContactNo() {
+        return customerContactNo;
     }
 
-    public void setAccount_status(String account_status) {
-        this.account_status = account_status;
+    public void setCustomerContactNo(String customerContactNo) {
+        this.customerContactNo = customerContactNo;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
 }

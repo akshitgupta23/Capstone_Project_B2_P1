@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CustomerDao extends JpaRepository<Customer, String> {
@@ -16,9 +17,5 @@ public interface CustomerDao extends JpaRepository<Customer, String> {
 
     Customer save(Customer customer);
 
-    void deleteCustomersByBranch(Branch branch);
-
-
-
-
+    Optional<Customer> findById(String CustomerNo);
 }
