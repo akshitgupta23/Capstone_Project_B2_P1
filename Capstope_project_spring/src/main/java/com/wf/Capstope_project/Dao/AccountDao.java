@@ -16,5 +16,5 @@ public interface AccountDao extends JpaRepository<Account, String> {
 
     Account save(Account account);
 
-    //void deleteAccountsByBranch(Branch branch);
+    void deleteAccountsByBranch(Branch branch);
 }
