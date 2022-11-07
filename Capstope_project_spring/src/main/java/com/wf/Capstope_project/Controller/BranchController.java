@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -28,4 +29,16 @@ public class BranchController {
 
         return new ResponseEntity<BranchRegistrationResponse>(branchService.branchRegistration(branch), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/displayAll")
+    public ResponseEntity<List<Branch>> displayAllBranches(HttpServletRequest httpServletRequest){
+        return new ResponseEntity<List<Branch>>(branchService.displayAllBranches(), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/deleteBranch",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<BranchRegistrationResponse> deleteBranch(HttpServletRequest httpServletRequest,
+                                                                   @RequestBody Branch branch){
+        return new ResponseEntity<BranchRegistrationResponse>(branchService.deleteBranch(branch), HttpStatus.OK);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.wf.Capstope_project.Entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "branch_master")
@@ -47,5 +48,18 @@ public class Branch {
 
     public void setBranchAddress(String branch_address) {
         this.branchAddress = branch_address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Branch branch = (Branch) o;
+        return branchId.equals(branch.branchId) && Objects.equals(branchName, branch.branchName) && Objects.equals(branchAddress, branch.branchAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(branchId, branchName, branchAddress);
     }
 }
