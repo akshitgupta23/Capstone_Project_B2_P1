@@ -43,7 +43,7 @@ public class Customer {
                     String customerContactNo,
                     String occupation,
                     Date dob) {
-        this.customerNo = customerNo;
+        this.customerNo = customer_no;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
