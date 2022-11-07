@@ -20,10 +20,16 @@ public class AccountController {
 
     @GetMapping("/create")
     public ResponseEntity<Object> create(@RequestBody Account account){
-        if(accountService.create(account)){
+        int status =accountService.create(account);
+        if(status == 0)
             return ResponseEntity.status(HttpStatus.CREATED).body("Created successfully");
-        }
-        return ResponseEntity.status(HttpStatus.NOT_MODIFIED).body("Creation unsuccessful!");
+        else if(status ==1)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Creation unsuccessful! Invalid customer number.");
+        else if(status ==2 )
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Creation unsuccessful! Invalid account type.");
+        else
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Creation unsuccessful!");
+
     }
 
 }
