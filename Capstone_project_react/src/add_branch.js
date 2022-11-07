@@ -1,10 +1,18 @@
 import React,{useState} from 'react' 
 import axios from 'axios'
+import Dropdown from './Dropdown';
 
 const Add_branch = () => {
     const [BranchId,setBranchId]=useState(""); 
     const [BranchName,setBranchName]=useState(""); 
-    const [BranchAddress,setBranchAddress]=useState(""); 
+    const [BranchAddress,setBranchAddress]=useState("");
+    const options = [
+        {value: "delhi", label: "Delhi"},
+        {value: "mumbai", label: "Mumbai"},
+        {value: "bengaluru", label: "Bengaluru"},
+        {value: "hyderabad", label: "Hyderabad"},
+        {value: "chennai", label: "Chennai"},
+    ];
     const submitThis=(e)=>{
         e.preventDefault()
         const info={BranchId:BranchId, 
@@ -48,8 +56,7 @@ const Add_branch = () => {
                          Branch Address
                         </label>
                         </td>
-                        <td><input type="text" name="BranchAddress" id="BranchAddress" required value={BranchAddress} onChange={(e)=>setBranchAddress(e.target.value)}/>
-                        </td>
+                        <td><Dropdown placeholder="Select...." options={options} /></td>
                     </tr>
                     <button type="submit">Submit</button>
                     </table>
