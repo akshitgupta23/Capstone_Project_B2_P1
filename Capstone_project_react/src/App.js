@@ -20,8 +20,9 @@ function App() {
                     <Route path='/Dashboard' element={<Dashboard/>} />
                     <Route path='/add-branch' element={<AddBranch/>} />
                     <Route path='/add-customer' element={<AddCustomer/>} />
-                    <Route path='/Successful-login' element={<Successful message="Successful Login"/>} />
+                    <Route path='/Successful-login' element={<Successful message="Login Successful "/>} />
                     <Route path='/Branch-added' element={<Successful message="Branch added Successfully"/>} />
+                    <Route path='/Account-added' element={<Successful message="Account added Successfully"/>} />
                     <Route path='/Unsuccessful-login' element={<UnsuccessfulLogin/>} />
                     <Route path='/display-branch' element={<DisplayBranch/>} />
                     <Route path='/display-customer' element={<DisplayCustomer/>}  />

@@ -42,7 +42,23 @@ const Login=()=>{
             <h1 align="center">Global Bank Admin login page</h1>
             <center>
                 <form action="" onSubmit={submitThis}>
-                    <div>
+                <table>
+                    <tr>
+                        <td><label htmlFor="email">Enter the user id</label>
+                        </td>
+                        <td><input type="text" name="email" id="email" required value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label htmlFor="passw">Enter the password</label>
+                        </td>
+                        <td><input type="password" name="passw" id="passw" value={passw} required onChange={(e)=>setPassw(e.target.value)}/>
+                        </td>
+                    </tr>
+                    
+                </table>
+                <button type="submit">Login</button>
+                    {/*<div>
                         <label htmlFor="email">Enter the user id</label>
                         <input type="text" name="email" id="email" required value={email} onChange={(e)=>setEmail(e.target.value)}/>
                     </div>
@@ -50,7 +66,7 @@ const Login=()=>{
                         <label htmlFor="passw">Enter the password</label>
                         <input type="password" name="passw" id="passw" value={passw} required onChange={(e)=>setPassw(e.target.value)}/>
                     </div>
-                    <button type="submit">Login</button>
+    */}
                 </form>
             </center>
 
