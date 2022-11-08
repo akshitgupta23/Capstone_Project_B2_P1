@@ -1,15 +1,15 @@
 package com.wf.Capstope_project.Response;
 
-public class BranchRegistrationResponse {
+public class MessageResponse {
     private boolean status;
     private int statusCode;
     private String message;
 
-    public BranchRegistrationResponse(){
+    public MessageResponse(){
 
     }
 
-    public BranchRegistrationResponse(boolean status, int statusCode, String  message) {
+    public MessageResponse(boolean status, int statusCode, String  message) {
         this.status = status;
         this.statusCode = statusCode;
         this.message = message;
