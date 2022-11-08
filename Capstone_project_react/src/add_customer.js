@@ -9,8 +9,8 @@ const Add_customer=()=> {
     const [BranchId,setBranchId]=useState(""); 
     const [Balance,setBalance]=useState("");
     const [OpeningDate, setOpeningDate]=useState(date);
-    const [AccountType, setAccountType]=useState("");
-    const [AccountStatus, setAccountStatus]=useState("");
+    const [AccountType, setAccountType]=useState("savings");
+    const [AccountStatus, setAccountStatus]=useState("active");
     const submitThis=(e)=>{
         e.preventDefault()
         const info={AccountNo:AccountNo, 
