@@ -19,10 +19,10 @@ public class AccountService {
     CustomerDao customerDao;
     public int create(Account account) {
         if(account!=null){
-        if(account.getAccount_type().equalsIgnoreCase("savings")||account.getAccount_type().equalsIgnoreCase("current"))
+        if(account.getAccountType().equalsIgnoreCase("savings")||account.getAccountType().equalsIgnoreCase("current"))
         {
-            String customer_no=account.getCustomer_no();
-            Optional<Customer> user = customerDao.findById(customer_no);
+            String customerNo=account.getCustomer().getCustomerNo();
+            Optional<Customer> user = customerDao.findById(customerNo);
             if(user.isPresent())
             {
                 account=accountDao.save(account);
