@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin")
 @CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/admin")
 
 public class AdminController {
 
@@ -20,7 +20,6 @@ public class AdminController {
     AdminService adminService;
 
     @GetMapping("/login")
-    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Object> login(@RequestBody Admin user){
         System.out.print(user);
         if(adminService.login(user)){
