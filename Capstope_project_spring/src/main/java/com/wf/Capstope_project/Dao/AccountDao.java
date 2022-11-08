@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AccountDao extends JpaRepository<Account, String> {
@@ -17,4 +18,6 @@ public interface AccountDao extends JpaRepository<Account, String> {
     Account save(Account account);
 
     void deleteAccountsByBranch(Branch branch);
+
+    Optional<Account> findById(String AccountNo);
 }

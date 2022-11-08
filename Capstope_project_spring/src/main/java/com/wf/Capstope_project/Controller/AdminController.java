@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin")
 
@@ -30,6 +32,9 @@ public class AdminController {
         return new ResponseEntity<>(adminService.createAdmin(user), HttpStatus.OK);
     }
 
-
+    @PostMapping("/displayAll")
+    public ResponseEntity<List<Admin>> displayAll(){
+        return new ResponseEntity<>(adminService.displayAllAdmin(), HttpStatus.OK);
+    }
 
 }

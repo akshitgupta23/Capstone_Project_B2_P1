@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -21,5 +23,10 @@ public class CustomerController {
     @PostMapping("/createCustomer")
     public ResponseEntity<MessageResponse> createCustomer(@RequestBody Customer customer){
         return new ResponseEntity<>(customerService.createCustomer(customer), HttpStatus.OK);
+    }
+
+    @PostMapping("/displayAll")
+    public ResponseEntity<List<Customer>> displayAll(){
+        return new ResponseEntity<>(customerService.displayAllCustomer(), HttpStatus.OK);
     }
 }
