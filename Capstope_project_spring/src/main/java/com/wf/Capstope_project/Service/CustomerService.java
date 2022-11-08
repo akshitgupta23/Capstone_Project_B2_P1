@@ -2,7 +2,6 @@ package com.wf.Capstope_project.Service;
 
 import com.wf.Capstope_project.Dao.AccountDao;
 import com.wf.Capstope_project.Dao.CustomerDao;
-import com.wf.Capstope_project.Entity.Admin;
 import com.wf.Capstope_project.Entity.Customer;
 import com.wf.Capstope_project.Response.MessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +12,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerService {
+public class CustomerService implements ICustomerService{
     @Autowired
     AccountDao accountDao;
     @Autowired
     CustomerDao customerDao;
 
+    @Override
     public boolean isPresent(String customerNo) {
         Optional<Customer> user = customerDao.findById(customerNo);
         return user.isPresent();
     }
 
+    @Override
     public MessageResponse createCustomer(Customer customer){
         try{
             if(customer!=null){
@@ -58,6 +59,7 @@ public class CustomerService {
         }
     }
 
+    @Override
     public List<Customer> displayAllCustomer(){
         return customerDao.findAll();
     }

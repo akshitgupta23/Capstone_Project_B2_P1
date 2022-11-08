@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccountService {
+public class AccountService implements IAccountService{
 
     @Autowired
     AccountDao accountDao;
@@ -26,6 +26,7 @@ public class AccountService {
     @Autowired
     BranchDao branchDao;
 
+    @Override
     public MessageResponse create(Account account) {
         try{
             if(account!=null){
@@ -64,6 +65,7 @@ public class AccountService {
         }
     }
 
+    @Override
     public List<Account> displayAllAccounts(){
         return accountDao.findAll();
     }
