@@ -37,13 +37,13 @@ public class Customer {
 
     public Customer(){}
 
-    public Customer(String customer_no, String firstName,
+    public Customer(String customerNo, String firstName,
                     String middleName, String lastName,
                     String customerCity,
                     String customerContactNo,
                     String occupation,
                     Date dob) {
-        this.customerNo = customer_no;
+        this.customerNo = customerNo;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
