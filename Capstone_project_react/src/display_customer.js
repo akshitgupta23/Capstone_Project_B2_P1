@@ -32,8 +32,8 @@ return(
                </tr>
                {
                            Customers.map(customer => (
-                             <tr key={customer.customer_no}>
-                               <td padding= "5px">{customer.customer_no}</td>
+                             <tr key={customer.customerNo}>
+                               <td padding= "5px">{customer.customerNo}</td>
                                <td padding= "5px">{customer.firstName}</td>
                                <td padding= "5px">{customer.middleName}</td>
                                <td padding= "5px">{customer.lastName}</td>
