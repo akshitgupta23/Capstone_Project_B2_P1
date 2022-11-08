@@ -11,6 +11,12 @@
 # production
 /build
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
 # misc
 .DS_Store
 .env.local
@@ -21,3 +27,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+### VS Code ###
+.vscode/
