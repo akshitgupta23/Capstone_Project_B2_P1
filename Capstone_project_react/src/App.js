@@ -5,6 +5,8 @@ import './App.css';
 import Dashboard from './dashboard';
 import DisplayBranch from './display_branches';
 import DisplayCustomer from './display_customer';
+import SuccessfulLogin from './successful_login'
+import UnsuccessfulLogin from './unsuccessful_login'
 import {Route, Routes, BrowserRouter} from "react-router-dom";
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
                     <Route path='/Dashboard' element={<Dashboard/>} />
                     <Route path='/add-branch' element={<AddBranch/>} />
                     <Route path='/add-customer' element={<AddCustomer/>} />
+                    <Route path='/Successful-login' element={<SuccessfulLogin/>} />
+                    <Route path='/Unsuccessful-login' element={<UnsuccessfulLogin/>} />
                     <Route path='/display-branch' element={<DisplayBranch/>} />
                     <Route path='/display-customer' element={<DisplayCustomer/>}  />
 

@@ -23,15 +23,17 @@ const Login=()=>{
                     //auth();
                     localStorage.setItem('temp', 'true');
                     console.log('Successfully Login');
-                    navigate('/Dashboard');
+                    navigate('/Successful-Login');
                 }
                 else{
-
+                    console.log('Unsuccessfully Login');
+                    navigate('/Unsuccessful-login');
                 }
             })
             .catch((err)=>{
                 console.log(err)
                 console.log(err.response)
+                navigate('/Unsuccessful-login');
             });
 
     }
