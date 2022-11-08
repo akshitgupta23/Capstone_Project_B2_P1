@@ -13,8 +13,8 @@ const Add_customer=()=> {
         console.log(info);
         //setDataInput([info]);
         console.log("form submitted------------------------------------------------------>");
-        axios.post('http://localhost:8081/admin/addcustomer',{AccountNo:AccountNo, 
-        CustomerNo:CustomerNo,BranchId:BranchId, Balance:Balance
+        axios.post('http://localhost:8081/admin/addcustomer',{"accountNo":AccountNo,
+        "customer":{"customerNo":CustomerNo},"branch":{"branchId":BranchId}, "openingBalance":Balance
         })
         .then((response)=> {
             console.log(response.data)

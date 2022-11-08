@@ -10,8 +10,13 @@ const Login=()=>{
         
 		//setDataInput([info]);
         console.log("form submitted------------------------------------------------------>");
-        axios.post('http://localhost:8081/admin/login',{email:email, 
-            password:passw
+        axios.get('http://localhost:8081/admin/login',{params: JSON.stringify({
+
+                "username": email,
+
+                "password": passw,
+
+            })
         })
         .then((response)=> {
             console.log(response.data)

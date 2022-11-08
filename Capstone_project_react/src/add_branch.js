@@ -15,12 +15,12 @@ const Add_branch = () => {
     ];
     const submitThis=(e)=>{
         e.preventDefault()
-        const info={BranchId:BranchId, 
-            BranchName:BranchName,BranchAddress:BranchAddress}; 
+        const info={"branchId":BranchId,
+            "branchName":BranchName,"branchAddress":BranchAddress};
         console.log(info);
         //setDataInput([info]);
         console.log("form submitted------------------------------------------------------>");
-        axios.post('http://localhost:8081/admin/addbranch',info)
+        axios.post('http://localhost:8081/branch/registration',info)
         .then((response)=> {
             console.log(response.data)
         })
@@ -56,7 +56,7 @@ const Add_branch = () => {
                          Branch Address
                         </label>
                         </td>
-                        <td><Dropdown placeholder="Select...." options={options} /></td>
+                        <td><Dropdown placeholder="Select...." options={options} value =  {BranchAddress} onChange={(e)=>setBranchAddress(e.target.value)}/></td>
                     </tr>
                     <button type="submit">Submit</button>
                     </table>
