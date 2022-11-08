@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import axios from 'axios'
-const Display_branch=()=> {
+const DisplayBranch=()=> {
 
 const [Branches, setBranches] = useState([]);
  axios.post('http://localhost:8081/branch/displayAll')
@@ -39,4 +39,4 @@ return(
 )
 }
 
-export default Display_branch;
+export default DisplayBranch;

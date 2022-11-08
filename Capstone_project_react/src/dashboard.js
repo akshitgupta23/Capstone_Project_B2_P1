@@ -6,7 +6,7 @@ const Dashboard = ()=>{return(
     <div>
             <h1 align="center">Global Bank Operations</h1>
             <center>
-                    <Link to= "/display-customers"><Button
+                    <Link to= "/display-customer"><Button
                             title="Display Customers"
                             onPress={() => Alert.alert('Simple Button pressed')}
                     /></Link>

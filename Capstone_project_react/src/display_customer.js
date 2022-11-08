@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-const Display_customer=()=> {
+const DisplayCustomer=()=> {
 
 const [Customers, setCustomers] = useState([]);
  {
-axios.post('http://localhost:8081/customer/displayAllCustomer')
+axios.post('http://localhost:8081/customer/displayAll')
       .then(response => {
         console.log('Printing Customer data', response.data);
         setCustomers(response.data);
@@ -53,4 +53,4 @@ return(
 )
 }
 
-export default Display_customer;
+export default DisplayCustomer;
