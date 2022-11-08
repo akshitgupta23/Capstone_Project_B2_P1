@@ -20,7 +20,7 @@ public class AdminController {
     AdminService adminService;
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody Admin user){
         System.out.print(user);
         if(adminService.login(user)){

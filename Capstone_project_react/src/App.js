@@ -1,28 +1,32 @@
 import Login from './login';
 import AddCustomer from './add_customer';
-import Addbranch from './add_branch';
+import AddBranch from './add_branch';
 import './App.css';
 import Dashboard from './dashboard';
 import Display_branch from './display_branches';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Route, Routes, BrowserRouter} from "react-router-dom";
 
 function App() {
-  return (
-  <BrowserRouter>
-    <div className="App">
-        <Switch>
-            <Route path="/" exact><Login /></Route>
-            <Route path="/dashboard" exact><Dashboard /></Route>
-            <Route path="/display-customers" exact></Route>
-            <Route path="/display-branch" exact><Display_branch/></Route>
-            <Route path="/add-customer" exact><AddCustomer /></Route>
-            <Route path="/add-branch" exact><Addbranch /></Route>
-        </Switch>
-    </div>
+
+    return (
+        <BrowserRouter>
+            <div className="App">
+
+                <Routes>
+                    <Route path='/' element={<Login/>} />
+                    <Route path='/Dashboard' element={<Dashboard/>} />
+                    <Route path='/add-branch' element={<AddBranch/>} />
+                    <Route path='/add-customer' element={<AddCustomer/>} />
+                    <Route path='/display-branch' element={<Display_branch/>} />
+                    <Route path='/display-customer' />
+
+                </Routes>
+            </div>
+        </BrowserRouter>
 
 
-  </BrowserRouter>
-  );
+
+    );
 }
 
 export default App;
