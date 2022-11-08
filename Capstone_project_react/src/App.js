@@ -3,6 +3,7 @@ import AddCustomer from './add_customer';
 import Addbranch from './add_branch';
 import './App.css';
 import Dashboard from './dashboard';
+import Display_branch from './display_branches';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/display-customers" exact></Route>
             <Route path="/display-branch" exact></Route>
             <Route path="/add-customer" exact><AddCustomer /></Route>
+            <Route path="/display_branches" exact> <Display_branch/></Route>
             <Route path="/add-branch" exact><Addbranch /></Route>
         </Switch>
     </div>
