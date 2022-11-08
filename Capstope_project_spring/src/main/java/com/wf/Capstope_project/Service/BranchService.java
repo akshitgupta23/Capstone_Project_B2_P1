@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BranchService {
+public class BranchService implements IBranchService{
 
     @Autowired
     BranchDao branchDao;
@@ -20,6 +20,7 @@ public class BranchService {
     @Autowired
     AccountDao accountDao;
 
+    @Override
     public MessageResponse branchRegistration(Branch branch){
         try{
             if(branch!=null){
@@ -57,6 +58,7 @@ public class BranchService {
 
     }
 
+    @Override
     public MessageResponse deleteBranch(Branch branch){
         try{
             if(branch!=null){
@@ -91,6 +93,7 @@ public class BranchService {
 
     }
 
+    @Override
     public List<Branch> displayAllBranches(){
         return branchDao.findAll();
     }

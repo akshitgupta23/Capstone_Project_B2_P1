@@ -11,20 +11,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AdminService {
+public class AdminService implements IAdminService{
 
     @Autowired
     AdminDao adminDao;
 
+    @Override
     public boolean login(Admin UIUser){
         Optional<Admin> user = adminDao.findById(UIUser.getUsername());
-        if(user.isPresent() && user.get().getPassword().equals(UIUser.getPassword()))
-        {
-            return true;
-        }
-        return false;
+        return user.isPresent() && user.get().getPassword().equals(UIUser.getPassword());
     }
 
+    @Override
     public MessageResponse createAdmin(Admin user){
         try{
             if(user!=null){
@@ -59,6 +57,7 @@ public class AdminService {
         }
     }
 
+    @Override
     public List<Admin> displayAllAdmin(){
         return adminDao.findAll();
     }
