@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios'
 const Add_customer=()=> {
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+    const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
     const [AccountNo,setAccountNo]=useState(""); 
     const [CustomerNo,setCustomerNo]=useState(""); 
     const [BranchId,setBranchId]=useState(""); 
@@ -18,7 +18,7 @@ const Add_customer=()=> {
         console.log(info);
         //setDataInput([info]);
         console.log("form submitted------------------------------------------------------>");
-        axios.post('http://localhost:8081/admin/addcustomer',{"accountNo":AccountNo,
+        axios.post('http://localhost:8081/account/create',{"accountNo":AccountNo,
         "customer":{"customerNo":CustomerNo},"branch":{"branchId":BranchId}, "openingBalance":Balance, "openingDate": OpeningDate,
         "accountType":AccountType, "accountStatus":AccountStatus
         })
