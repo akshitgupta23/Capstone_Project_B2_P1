@@ -1,5 +1,6 @@
 import React,{useState} from 'react' 
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 const Add_customer=()=> {
     const current = new Date().toISOString().substring(0,10);
     //const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
@@ -11,8 +12,11 @@ const Add_customer=()=> {
     const [OpeningDate, setOpeningDate]=useState(date);
     const [AccountType, setAccountType]=useState("savings");
     const [AccountStatus, setAccountStatus]=useState("active");
+    const navigate = useNavigate();
     const submitThis=(e)=>{
+
         e.preventDefault()
+        
         const info={AccountNo:AccountNo, 
             CustomerNo:CustomerNo,BranchId:BranchId, Balance:Balance, OpeningDate:OpeningDate, AccountType:AccountType, AccountStatus:AccountStatus
             }; 
@@ -25,6 +29,8 @@ const Add_customer=()=> {
         })
         .then((response)=> {
             console.log(response.data)
+            if(response.data.status==true)
+            navigate('/Branch-added');
         })
         .catch((err)=>{
             console.log(err)

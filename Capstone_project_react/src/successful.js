@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Container, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './dashboard';
-function SuccessfulLogin() {
+function Successful({message}) {
     const [show, setShow] = useState(true)  
     if(show)
     {
@@ -13,7 +13,7 @@ function SuccessfulLogin() {
     
                 <Container className='p-4'>
                     <Alert variant="primary" onClose={() => setShow(false)} dismissible >
-                        <Alert.Heading>Successful Login</Alert.Heading>
+                        <Alert.Heading> {message}</Alert.Heading>
                     </Alert>
                 </Container>
     
@@ -28,4 +28,4 @@ function SuccessfulLogin() {
     }
     
 }
-export default SuccessfulLogin;
+export default Successful;

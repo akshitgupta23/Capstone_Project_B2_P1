@@ -18,7 +18,7 @@ const Add_branch = () => {
             console.log(response.data)
             if(response.data.status===true)
             {
-                navigate('/Dashboard');
+                navigate('/Branch-added');
             }
         })
         .catch((err)=>{
