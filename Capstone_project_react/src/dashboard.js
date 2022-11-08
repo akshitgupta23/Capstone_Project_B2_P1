@@ -15,7 +15,7 @@ const Dashboard = ()=>{return(
                         onPress={() => Alert.alert('Simple Button pressed')}
                      /></Link>
                     <Link to= "/add-customer"><Button
-                            title="Add Customer"
+                            title="Add Customer Account"
                             onPress={() => Alert.alert('Simple Button pressed')}
                     /></Link>
                     <Link to = "/add-branch"><Button

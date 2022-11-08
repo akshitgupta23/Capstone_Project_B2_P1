@@ -1,10 +1,11 @@
 import React,{useState} from 'react' 
 import axios from 'axios'
 const Add_customer=()=> {
-    const current = new Date();
-    const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+    const current = new Date().toISOString().substring(0,10);
+    //const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+    const date = current;
     const [AccountNo,setAccountNo]=useState(""); 
-    const [CustomerNo,setCustomerNo]=useState(""); 
+    const [CustomerNo,setCustomerNo]=useState("");
     const [BranchId,setBranchId]=useState(""); 
     const [Balance,setBalance]=useState("");
     const [OpeningDate, setOpeningDate]=useState(date);
