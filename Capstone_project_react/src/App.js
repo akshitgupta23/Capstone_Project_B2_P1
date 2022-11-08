@@ -3,7 +3,7 @@ import AddCustomer from './add_customer';
 import AddBranch from './add_branch';
 import './App.css';
 import Dashboard from './dashboard';
-import Display_branch from './display_branches';
+import DisplayBranch from './display_branches';
 import {Route, Routes, BrowserRouter} from "react-router-dom";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
                     <Route path='/Dashboard' element={<Dashboard/>} />
                     <Route path='/add-branch' element={<AddBranch/>} />
                     <Route path='/add-customer' element={<AddCustomer/>} />
-                    <Route path='/display-branch' element={<Display_branch/>} />
+                    <Route path='/display-branch' element={<DisplayBranch/>} />
                     <Route path='/display-customer' />
 
                 </Routes>

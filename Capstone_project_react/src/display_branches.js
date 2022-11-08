@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import axios from 'axios'
-const Display_branch=()=> {
+const DisplayBranch=()=> {
 
 const [Branches, setBranches] = useState([]);
  axios.post('http://localhost:8081/branch/displayAll')
@@ -25,6 +25,7 @@ return(
                {
                            Branches.map(branch => (
                              <tr key={branch.branchId}>
+                                 <td>{branch.branchId}</td>
                                <td>{branch.branchName}</td>
                                <td>{branch.branchAddress}</td>
                              </tr>
@@ -37,4 +38,4 @@ return(
 )
 }
 
-export default Display_branch;
+export default DisplayBranch;
