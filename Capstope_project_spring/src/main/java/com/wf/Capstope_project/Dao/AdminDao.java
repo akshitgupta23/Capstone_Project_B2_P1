@@ -11,4 +11,6 @@ import java.util.Optional;
 @Repository
 public interface AdminDao extends JpaRepository<Admin, String> {
     Optional<Admin> findById(String username);
+
+    Admin save(Admin admin);
 }

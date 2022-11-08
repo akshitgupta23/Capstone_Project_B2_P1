@@ -35,6 +35,8 @@ public class AccountService {
                     Optional<Branch> branch = branchDao.findById(account.getBranch().getBranchId());
                     if(user.isPresent() && branch.isPresent())
                     {
+                        account.setBranch(branch.get());
+                        account.setCustomer(user.get());
                         accountDao.save(account);
                         return new MessageResponse(true, 0, "Created successfully");
                     }

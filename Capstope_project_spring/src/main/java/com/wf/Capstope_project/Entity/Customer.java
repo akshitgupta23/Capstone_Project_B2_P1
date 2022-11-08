@@ -57,7 +57,7 @@ public class Customer {
         return customerNo;
     }
 
-    public void setCustomer_no(String customerNo) {
+    public void setCustomerNo(String customerNo) {
         this.customerNo = customerNo;
     }
 
@@ -115,5 +115,12 @@ public class Customer {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public boolean isValid(){
+        return this.customerNo != null && this.firstName != null
+                && this.middleName != null && this.lastName != null
+                && this.customerCity != null && this.customerContactNo != null
+                && this.occupation != null && this.dob != null;
     }
 }

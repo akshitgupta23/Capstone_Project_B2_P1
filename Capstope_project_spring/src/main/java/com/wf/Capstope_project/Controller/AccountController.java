@@ -17,15 +17,6 @@ public class AccountController {
     @PostMapping("/create")
     public ResponseEntity<MessageResponse> create(@RequestBody Account account){
         return new ResponseEntity<>(accountService.create(account), HttpStatus.OK);
-        /*int status =accountService.create(account);
-        if(status == 0)
-            return ResponseEntity.status(HttpStatus.CREATED).body("");
-        else if(status ==1)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("");
-        else if(status ==2 )
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("");
-        else
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("");*/
 
     }
 
