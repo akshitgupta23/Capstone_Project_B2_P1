@@ -1,7 +1,9 @@
 import React,{useState} from 'react' 
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 const Add_branch = () => {
+    const navigate = useNavigate();
     const [BranchId,setBranchId]=useState(""); 
     const [BranchName,setBranchName]=useState(""); 
     const [BranchAddress,setBranchAddress]=useState("Delhi");
@@ -14,6 +16,10 @@ const Add_branch = () => {
         axios.post('http://localhost:8081/branch/registration',info)
         .then((response)=> {
             console.log(response.data)
+            if(response.data.status===true)
+            {
+                navigate('/Dashboard');
+            }
         })
         .catch((err)=>{
             console.log(err)
