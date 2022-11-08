@@ -1,24 +1,15 @@
 import React,{useState} from 'react' 
 import axios from 'axios'
-import Dropdown from './Dropdown';
 
 const Add_branch = () => {
     const [BranchId,setBranchId]=useState(""); 
     const [BranchName,setBranchName]=useState(""); 
-    const [BranchAddress,setBranchAddress]=useState("");
-    const options = [
-        {value: "delhi", label: "Delhi"},
-        {value: "mumbai", label: "Mumbai"},
-        {value: "bengaluru", label: "Bengaluru"},
-        {value: "hyderabad", label: "Hyderabad"},
-        {value: "chennai", label: "Chennai"},
-    ];
+    const [BranchAddress,setBranchAddress]=useState("Delhi");
     const submitThis=(e)=>{
         e.preventDefault()
         const info={"branchId":BranchId,
             "branchName":BranchName,"branchAddress":BranchAddress};
         console.log(info);
-        //setDataInput([info]);
         console.log("form submitted------------------------------------------------------>");
         axios.post('http://localhost:8081/branch/registration',info)
         .then((response)=> {
@@ -56,7 +47,13 @@ const Add_branch = () => {
                          Branch Address
                         </label>
                         </td>
-                        <td><Dropdown placeholder="Select...." options={options} value =  {BranchAddress} onChange={(e)=>setBranchAddress(e.target.value)}/></td>
+                        <td><select value =  {BranchAddress} onChange={(e)=>setBranchAddress(e.target.value)}>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="bengaluru">Bengaluru</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="hyderabad">Hyderabad</option>
+                        </select></td>
                     </tr>
                     <button type="submit">Submit</button>
                     </table>
