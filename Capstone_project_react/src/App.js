@@ -14,9 +14,8 @@ function App() {
             <Route path="/" exact><Login /></Route>
             <Route path="/dashboard" exact><Dashboard /></Route>
             <Route path="/display-customers" exact></Route>
-            <Route path="/display-branch" exact></Route>
+            <Route path="/display-branch" exact><Display_branch/></Route>
             <Route path="/add-customer" exact><AddCustomer /></Route>
-            <Route path="/display_branches" exact> <Display_branch/></Route>
             <Route path="/add-branch" exact><Addbranch /></Route>
         </Switch>
     </div>

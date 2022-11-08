@@ -19,6 +19,7 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/login")
     public ResponseEntity<Object> login(@RequestBody Admin user){
         System.out.print(user);
@@ -28,11 +29,13 @@ public class AdminController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invalid User");
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/createAdmin")
     public ResponseEntity<MessageResponse> createAdmin(@RequestBody Admin user){
         return new ResponseEntity<>(adminService.createAdmin(user), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/displayAll")
     public ResponseEntity<List<Admin>> displayAll(){
         return new ResponseEntity<>(adminService.displayAllAdmin(), HttpStatus.OK);

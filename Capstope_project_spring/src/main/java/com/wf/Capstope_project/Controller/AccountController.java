@@ -11,16 +11,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/account")
 public class AccountController {
     @Autowired
     AccountService accountService;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/create")
     public ResponseEntity<MessageResponse> create(@RequestBody Account account){
         return new ResponseEntity<>(accountService.create(account), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/displayAll")
     public ResponseEntity<List<Account>> displayAll(){
         return new ResponseEntity<>(accountService.displayAllAccounts(), HttpStatus.OK);

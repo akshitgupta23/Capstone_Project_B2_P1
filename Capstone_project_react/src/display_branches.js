@@ -3,7 +3,7 @@ import axios from 'axios'
 const Display_branch=()=> {
 
 const [Branches, setBranches] = useState([]);
- axios.get('http://localhost:8081/branch/displayAll')
+ axios.post('http://localhost:8081/branch/displayAll')
       .then(response => {
         console.log('Printing Brnach data', response.data);
         setBranches(response.data);

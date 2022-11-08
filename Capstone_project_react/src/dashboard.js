@@ -10,7 +10,7 @@ const Dashboard = ()=>{return(
                             title="Display Customers"
                             onPress={() => Alert.alert('Simple Button pressed')}
                     /></Link>
-                    <Link to = "/display-branches"><Button
+                    <Link to = "/display-branch"><Button
                         title="Display Branch details"
                         onPress={() => Alert.alert('Simple Button pressed')}
                      /></Link>

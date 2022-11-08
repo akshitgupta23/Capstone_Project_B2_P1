@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/branch")
 @CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/branch")
 public class BranchController {
 
     @Autowired
@@ -26,11 +26,13 @@ public class BranchController {
         return new ResponseEntity<>(branchService.branchRegistration(branch), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "/displayAll")
     public ResponseEntity<List<Branch>> displayAllBranches(){
         return new ResponseEntity<>(branchService.displayAllBranches(), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "/deleteBranch",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<MessageResponse> deleteBranch( @RequestBody Branch branch){
         return new ResponseEntity<>(branchService.deleteBranch(branch), HttpStatus.OK);
