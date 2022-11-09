@@ -23,7 +23,8 @@ function App() {
                     <Route path='/Successful-login' element={<Successful message="Login Successful "/>} />
                     <Route path='/Branch-added' element={<Successful message="Branch added Successfully"/>} />
                     <Route path='/Account-added' element={<Successful message="Account added Successfully"/>} />
-                    <Route path='/Unsuccessful-login' element={<UnsuccessfulLogin/>} />
+                    <Route path='/Unsuccessful-login' element={<UnsuccessfulLogin message="Login Unsuccessful"/>} />
+                    <Route path='/Logout' element={<UnsuccessfulLogin message="Logged Out"/>} />
                     <Route path='/display-branch' element={<DisplayBranch/>} />
                     <Route path='/display-customer' element={<DisplayCustomer/>}  />
 

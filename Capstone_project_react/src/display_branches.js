@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import Navbar_logout from './navbar';
 const DisplayBranch=()=> {
 
 const [Branches, setBranches] = useState([]);
@@ -14,6 +15,7 @@ const [Branches, setBranches] = useState([]);
 
 return(
     <div>
+            <Navbar_logout/>
             <h1 align="center">Branches</h1>
             <center>
             <table border="1px solid" background-color= "##04AA6D" border-spacing="30px">

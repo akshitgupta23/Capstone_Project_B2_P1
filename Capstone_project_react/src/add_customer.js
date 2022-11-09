@@ -1,6 +1,7 @@
 import React,{useState} from 'react' 
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import Navbar_logout from './navbar';
 const Add_customer=()=> {
     const current = new Date().toISOString().substring(0,10);
     //const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
@@ -40,6 +41,7 @@ const Add_customer=()=> {
     return (
         
         <div>
+            <Navbar_logout/>
              <h1 align="center">Global Bank customer account opening page</h1>
              <center>
              <form action="" onSubmit={submitThis}>
