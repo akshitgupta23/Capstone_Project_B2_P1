@@ -34,6 +34,9 @@ public class AccountServiceTest {
     Account account;
 
     @Mock
+    protected AccountService accountService;
+
+    @Mock
     AccountDao accountDao;
 
     @Mock
@@ -62,13 +65,13 @@ public class AccountServiceTest {
         list.add(empOne);
         list.add(empTwo);
 
-        when(accountDao.findAll()).thenReturn(list);
+        when(accountService.displayAllAccounts()).thenReturn(list);
 
         //test
-        List<Account> empList = accountDao.findAll();
+        List<Account> empList = accountService.displayAllAccounts();
 
         assertEquals(2, empList.size());
-        verify(accountDao, times(1)).findAll();
+        verify(accountService, times(1)).displayAllAccounts();
     }
 
     @Test
@@ -80,10 +83,10 @@ public class AccountServiceTest {
 
 
 
-        accountDao.save(acc);
+        accountService.create(acc);
         assertThat(this.customerDao.findById(acc.getCustomer().getCustomerNo()).isPresent());
         assertThat(branchDao.findById(acc.getBranch().getBranchId()).isPresent());
-        verify(accountDao, times(1)).save(acc);
+        verify(accountService, times(1)).create(acc);
     }
 
 }
