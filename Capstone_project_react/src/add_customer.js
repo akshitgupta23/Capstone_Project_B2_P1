@@ -14,6 +14,29 @@ const Add_customer=()=> {
     const [AccountType, setAccountType]=useState("savings");
     const [AccountStatus, setAccountStatus]=useState("active");
     const navigate = useNavigate();
+
+    const [Branches, setBranches] = useState([]);
+     axios.post('http://localhost:8081/branch/displayAll')
+          .then(response => {
+//            console.log('Printing Brnach data', response.data);
+            setBranches(response.data);
+          })
+          .catch(error => {
+            console.log('Something went wrong', error);
+          });
+
+     const [Customers, setCustomers] = useState([]);
+      {
+     axios.post('http://localhost:8081/customer/displayAll')
+           .then(response => {
+//             console.log('Printing Customer data', response.data);
+             setCustomers(response.data);
+           })
+           .catch(error => {
+             console.log('Something went wrong', error);
+           });
+     }
+
     const submitThis=(e)=>{
 
         e.preventDefault()
@@ -60,16 +83,29 @@ const Add_customer=()=> {
                             CustomerNo
                         </label>
                         </td>
-                        <td><input type="text" name="CustomerNo" id="CustomerNo" required value={CustomerNo} onChange={(e)=>setCustomerNo(e.target.value)}/>
-                        </td>
+                        <td><select value =  {CustomerNo} onChange={(e)=>setCustomerNo(e.target.value)}>
+                            {
+                                Customers.map(customer => (
+                                        <option value={customer.customerNo}>{customer.customerNo}</option>
+                                   ))
+                            }
+
+                            </select></td>
                     </tr>
                     <tr>
                         <td><label htmlFor="BranchId">
                             BranchId
                         </label>
                         </td>
-                        <td><input type="text" name="BranchId" id="BranchId" required value={BranchId} onChange={(e)=>setBranchId(e.target.value)}/>
-                        </td>
+                        <td><select value =  {BranchId} onChange={(e)=>setBranchId(e.target.value)}>
+                        {
+                            Branches.map(branch => (
+                                    <option value={branch.branchId}>{branch.branchId}</option>
+                               ))
+                        }
+
+                        </select></td>
+
                     </tr>
                     <tr>
                         <td><label htmlFor="Balance">
