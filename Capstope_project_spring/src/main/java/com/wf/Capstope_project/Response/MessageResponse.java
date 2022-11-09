@@ -1,5 +1,7 @@
 package com.wf.Capstope_project.Response;
 
+import java.util.Objects;
+
 public class MessageResponse {
     private boolean status;
     private int statusCode;
@@ -37,5 +39,18 @@ public class MessageResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MessageResponse)) return false;
+        MessageResponse that = (MessageResponse) o;
+        return isStatus() == that.isStatus() && getStatusCode() == that.getStatusCode() && Objects.equals(getMessage(), that.getMessage());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isStatus(), getStatusCode(), getMessage());
     }
 }
