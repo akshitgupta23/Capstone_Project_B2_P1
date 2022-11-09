@@ -21,11 +21,13 @@ import com.wf.Capstope_project.Dao.AdminDao;
 import com.wf.Capstope_project.Entity.Admin;
 import com.wf.Capstope_project.Response.MessageResponse;
 import com.wf.Capstope_project.Service.AdminService;
+import org.mockito.junit.MockitoJUnitRunner;
 
+@RunWith(MockitoJUnitRunner.class)
 public class AdminServiceTest {
 
     @InjectMocks
-    Admin admin;
+    AdminService adminService;
 
     @Mock
     AdminDao dao;
@@ -50,7 +52,7 @@ public class AdminServiceTest {
         when(dao.findAll()).thenReturn(list);
 
         //test
-        List<Admin> empList = dao.findAll();
+        List<Admin> empList = adminService.displayAllAdmin();
 
         assertEquals(3, empList.size());
         verify(dao, times(1)).findAll();
@@ -61,9 +63,7 @@ public class AdminServiceTest {
     {
         when(dao.findById("Peter")).thenReturn(Optional.of(new Admin("Peter", "123")));
 
-        Optional<Admin> emp = dao.findById("Peter");
-        assertNotNull(emp);
-        assertEquals("123", emp.get().getPassword());
+        assertEquals(true, adminService.login(new Admin("Peter", "123")));
     }
 
 }
