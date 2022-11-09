@@ -26,14 +26,15 @@ import com.wf.Capstope_project.Dao.AccountDao;
 import com.wf.Capstope_project.Entity.Account;
 import com.wf.Capstope_project.Response.MessageResponse;
 import com.wf.Capstope_project.Service.AccountService;
+import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@RunWith(MockitoJUnitRunner.class)
 public class AccountServiceTest {
 
     @InjectMocks
-    Account account;
-
-    @Mock
+    @Spy
     protected AccountService accountService;
 
     @Mock
@@ -71,7 +72,7 @@ public class AccountServiceTest {
         List<Account> empList = accountService.displayAllAccounts();
 
         assertEquals(2, empList.size());
-        verify(accountService, times(1)).displayAllAccounts();
+        verify(accountService, times(2)).displayAllAccounts();
     }
 
     @Test
