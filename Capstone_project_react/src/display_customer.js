@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import Navbar_logout from './navbar';
 const DisplayCustomer=()=> {
 
 const [Customers, setCustomers] = useState([]);
@@ -16,6 +17,7 @@ axios.post('http://localhost:8081/customer/displayAll')
 
 return(
     <div>
+            <Navbar_logout/>
             <h1 align="center">Customers</h1>
            {
 <center>

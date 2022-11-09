@@ -1,6 +1,7 @@
 import React,{useState} from 'react' 
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import Navbar_logout from './navbar';
 
 const Add_branch = () => {
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ const Add_branch = () => {
     }
   return (
     <div>
+        <Navbar_logout/>
         <h1 align="center">Global Bank Branch details opening page</h1>
              <center>
              <form action="" onSubmit={submitThis}>
