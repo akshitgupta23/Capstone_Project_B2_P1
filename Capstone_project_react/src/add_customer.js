@@ -54,7 +54,7 @@ const Add_customer=()=> {
         .then((response)=> {
             console.log(response.data)
             if(response.data.status===true)
-            navigate('/Branch-added');
+            navigate('/Account-added');
         })
         .catch((err)=>{
             console.log(err)
